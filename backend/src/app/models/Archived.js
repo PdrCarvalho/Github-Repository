@@ -36,7 +36,7 @@ const ArchivedSchema = new mongoose.Schema(
             type: Date,
           },
         contributors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contributors' }],
-        pull: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pulls' }],
+        pulls: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pulls' }],
     },
     {
         timestamps: true,

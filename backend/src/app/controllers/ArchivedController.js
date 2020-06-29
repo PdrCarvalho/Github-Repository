@@ -47,3 +47,5 @@ class ArchivedController{
         return res.json(archived)
     }
 }
+
+export default new ArchivedController()

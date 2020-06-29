@@ -6,11 +6,11 @@ const ContributorsSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        full_name: {
+        login: {
             type: String,
             required: true,
         },
-        description: {
+        avatar_url: {
             type: String,
             required: false,
         },
@@ -22,7 +22,7 @@ const ContributorsSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        name: {
+        type: {
             type: String,
             required: true,
         },
@@ -30,17 +30,9 @@ const ContributorsSchema = new mongoose.Schema(
             type: String,
             required: true,
         },
-        created_at: {
+        contributions: {
             type: Date,
           },
-        updated_at: {
-            type: Date,
-          },
-        pushed_at: {
-            type: Date,
-          },
-        contributors: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Contributors' }],
-        pull: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Pulls' }],
     },
     {
         timestamps: true,
