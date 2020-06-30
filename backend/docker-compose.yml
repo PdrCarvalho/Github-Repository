@@ -13,7 +13,7 @@ services:
   mongo:
     image: mongo
     ports:
-      - 27017
+      - 27017:27017
     expose:
       - 27017
     volumes: 
@@ -23,13 +23,12 @@ services:
     build: .
     command: >
       sh -c "yarn
-      && yarn build
-      && yarn start"
+      && yarn dev"
     volumes:
       - .:/code
       - /code/node_modules
     ports:
-      - '80:3333'
+      - '3333:3333'
     # links:
       # - postgres
     depends_on:

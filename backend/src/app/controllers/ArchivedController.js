@@ -1,6 +1,7 @@
 import * as Yup from 'yup'
 
 import Archived from '../models/Archived'
+// import Contributors from '../models/Contributors'
 import api from '../../service/api'
 
 class ArchivedController{
@@ -38,12 +39,12 @@ class ArchivedController{
         }
         respository['contributors']= contributors
         respository['pulls']= pulls
-        const archived = Archived.create(respository)
+        const archived = await Archived.create(respository)
         return res.json(archived)
 
     }
     async Index(req,res){
-        const archived = Archived.find().populate('contributors').populate('pulls')
+        const archived = await  Archived.find().populate('contributors').populate('pulls')
         return res.json(archived)
     }
 }

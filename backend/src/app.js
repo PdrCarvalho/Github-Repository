@@ -4,7 +4,7 @@ import routes from './routes';
 const cors = require('cors');
 
 
-// import './database/index';
+import './database/index';
 
 
 class App {
