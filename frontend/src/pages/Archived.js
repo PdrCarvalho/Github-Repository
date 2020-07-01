@@ -3,21 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "../theme";
 import api from '../service/api'
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction';
-import ListItemText from '@material-ui/core/ListItemText';
-import Checkbox from '@material-ui/core/Checkbox';
-import Divider from '@material-ui/core/Divider';
-import Typography from '@material-ui/core/Typography';
-// import Card from '@material-ui/core/Card';
-// import CardActions from '@material-ui/core/CardActions';
-// import CardContent from '@material-ui/core/CardContent';
-// import Button from '@material-ui/core/Button';
+
 import {
     Card, CardActions, CardContent, Button, TextField,
-    Container, CardMedia, Chip, Avatar, Link
+    Container, CardMedia, Chip, Avatar, Link,Typography
 } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
@@ -83,7 +72,7 @@ function Archived() {
     return (
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <Fragment>
-                <Container className={classes.bullet} >
+                <Container  >
 
                     {repositories.map(repository => {
                         return (

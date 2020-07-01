@@ -9,13 +9,17 @@ class ArchivedController{
         const schema = Yup.object().shape({
             username: Yup.string().required(),
             repository_name: Yup.string().required(),
+            repository_id:Yup.string().required()
         });
 
         if (!(await schema.isValid(req.body))) {
             return res.status(400).json({ error: "Validation fails" });
         }
-        const {username, repository_name} = req.body
-
+        const {username, repository_name, repository_id} = req.body
+        const repositoryExist = await Archived.findOne({id:repository_id})
+        if (repositoryExist){
+            return res.status(400).json({error:'Repository has already been archived'})
+        }
         try{
              let response = await api.get(`repos/${username}/${repository_name}`)
              var respository = response.data
@@ -40,11 +44,11 @@ class ArchivedController{
         respository['contributors']= contributors
         respository['pulls']= pulls
         const archived = await Archived.create(respository)
-        return res.json(archived)
+        return res.status(201).json(archived)
 
     }
     async Index(req,res){
-        const archived = await  Archived.find().populate('contributors').populate('pulls')
+        const archived = await  Archived.find().populate('contributors').populate('pulls').sort([['createdAt',-1]])
         return res.json(archived)
     }
 }
