@@ -23,8 +23,7 @@ services:
     build: .
     command: >
       sh -c "yarn
-      && yarn build
-      && yarn start"
+      && yarn dev"
     volumes:
       - .:/code
       - /code/node_modules
