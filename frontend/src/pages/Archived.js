@@ -5,8 +5,8 @@ import { lightTheme, darkTheme } from "../theme";
 import api from '../service/api'
 
 import {
-    Card, CardActions, CardContent, Button, TextField,
-    Container, CardMedia, Chip, Avatar, Link,Typography
+    Card, CardActions, CardContent,
+    Container, Chip, Avatar, Link,Typography
 } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
@@ -102,7 +102,8 @@ function Archived() {
                                 <CardContent className={classes.lisChip}>
                                     {repository.pulls.map(pull => {
                                         return (
-                                            <CardContent>
+                                            <Card>
+                                           <CardContent >
                                                 <Typography variant="h6" component="p">
                                                     Pull request
                                                 </Typography>
@@ -116,6 +117,7 @@ function Archived() {
                                                     </Link>
                                                 </CardActions>
                                             </CardContent>
+                                            </Card>
                                         )
                                     })}
                                 </CardContent>
